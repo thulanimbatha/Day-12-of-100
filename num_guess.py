@@ -1,13 +1,36 @@
 # Day project - number guess game
 from random import randint
-# 1 - comp choose random number between 1 - 100
-comp_guess = randint(1, 100)
 
-# 2 - set difficulty
-
-# 3 - let user guess number
+EASY_LEVEL_NUM = 10
+HARD_LEVEL_NUM = 5
 
 # 4 - check user guess
+def check_answer(user_guess, comp_guess):
+    if user_guess > comp_guess:
+        print("Too high.")
+    elif user_guess < comp_guess:
+        print("Too low")
+    else:
+        print(f"You win. The computer chose {comp_guess}")
+
+# 2 - set difficulty
+def set_difficulty():
+    level = input("Choose a difficulty. (type 'easy' or 'hard'").lower()
+    if level == "easy":
+        return EASY_LEVEL_NUM
+    else:
+        return HARD_LEVEL_NUM
+
+# 1 - comp choose random number between 1 - 100
+print("Welcome to the Guessing Game! Can you beat the computer?")
+comp_guess = randint(1, 100)
+print("Computer chose a number between 1 and 100.")
+
+
+# 3 - let user guess number
+user_guess = int(input("Make your guess: "))
+number_of_guesses = set_difficulty()
+print(f"You have {number_of_guesses} attempts left.")
 
 # 5 - track number of guesses
 
